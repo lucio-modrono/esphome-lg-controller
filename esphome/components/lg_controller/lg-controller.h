@@ -1376,7 +1376,7 @@ private:
             if (recv_buf_len_ == MsgLen) {
                 process_message(recv_buf_, &had_error);
                 if (had_error) {
-                    for (int i = 0; i < MsgLen; ++i) recv_buf_[i] = recv_buf_[i + 1];
+                    for ( int i = 0; i < MsgLen-1; ) recv_buf_[i] = recv_buf_[i++];
                     recv_buf_len_--;
                 } else {
                     recv_buf_len_ = 0;
